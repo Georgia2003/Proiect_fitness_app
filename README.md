@@ -1,222 +1,48 @@
-
-# Proiect Tehnologii Mobile
-
-## Descriere proiect
-
-Acest proiect reprezintă o aplicație mobilă dezvoltată cu **Flutter** pentru disciplina **Tehnologii Mobile**.
-Aplicația permite utilizatorilor să descopere diferite **modele de manichiură**, să aleagă serviciul dorit și să își facă **programări online la salon**.
-
-Aplicația va consuma **servicii web (REST API)** pentru a obține informații despre modelele de unghii și serviciile disponibile și va utiliza **SQLite** pentru stocarea locală a anumitor date (ex: favorite sau programări salvate).
-
-Scopul aplicației este să ofere o interfață mobilă prin care utilizatorii pot:
-
-* vizualiza modele de unghii
-* explora diferite tipuri de servicii de manichiură
-* vedea detalii despre fiecare model sau serviciu
-* salva modele preferate
-* crea un cont de utilizator
-* realiza programări online
-* efectua plata serviciilor înainte de programare
-
----
-
-# Conceptul aplicației
-
-Aplicația va funcționa ca o platformă de **descoperire și programare pentru servicii de manichiură**.
-
-Pe pagina principală vor fi afișate **modele de unghii** sub formă de carduri cu imagini.
-
-Fiecare model poate conține informații precum:
-
-* tipul de manichiură
-* stilul modelului
-* nivelul de complexitate
-* durata estimată a realizării
-* prețul serviciului
-* descrierea modelului
-
-Utilizatorul poate selecta un model pentru a vedea mai multe detalii și pentru a realiza o **programare la salon**.
-
-Aplicația permite și salvarea modelelor preferate pentru a putea fi accesate ulterior.
-
----
-
-# Structura aplicației
-
-Aplicația va avea următoarele ecrane principale:
-
-## 1. Home Page
-
-Pagina principală va afișa mai multe **modele de unghii disponibile**.
-
-Fiecare element din listă va conține:
-
-* imagine reprezentativă
-* numele modelului
-* tipul de manichiură (ex: clasică, semi-permanentă, construcție gel)
-* preț orientativ
-* un buton pentru vizualizarea detaliilor
-
-Această pagină permite utilizatorului să exploreze rapid diferite stiluri de manichiură.
-
----
-
-## 2. Pagina de detalii a modelului
-
-Această pagină va conține informații complete despre modelul selectat.
-
-Informațiile pot include:
-
-* descrierea modelului
-* tipul de serviciu
-* durata estimată a procedurii
-* prețul
-* recomandări privind întreținerea manichiurii
-
-Pe această pagină utilizatorul va avea opțiunea de a:
-
-* salva modelul la **favorite**
-* continua către **programare**
-
----
-
-## 3. Pagina de programare
-
-Această pagină va permite utilizatorului să realizeze o **programare online** pentru serviciul dorit.
-
-Exemple de informații colectate:
-
-* nume
-* email / telefon
-* tipul de serviciu (semi-permanent, clasic, construcție etc.)
-* data și ora programării
-* observații suplimentare
-
-După completarea formularului, utilizatorul poate continua către **plata online a serviciului**.
-
-Datele pot fi trimise către un serviciu web sau salvate temporar local.
-
----
-
-## 4. Pagina de favorite
-
-Utilizatorul poate salva anumite **modele de unghii preferate** pentru a le consulta ulterior.
-
-Aceste date vor fi salvate local folosind **SQLite**, astfel încât aplicația să demonstreze utilizarea unei baze de date locale.
-
----
-
-## 5. Pagina de cont utilizator
-
-Aplicația va permite utilizatorilor să își creeze un **cont personal**.
-
-Prin intermediul contului, utilizatorii pot:
-
-* vizualiza programările realizate
-* gestiona preferințele
-* salva modele favorite
-
----
-
-# Structura tehnică a proiectului
-
-Codul aplicației este organizat în interiorul folderului **lib** folosind o structură modulară.
-
-```text
-lib
- ├── models
- │   └── nail_model.dart
- │
- ├── services
- │   ├── api_service.dart
- │   └── database_service.dart
- │
- ├── screens
- │   ├── home_page.dart
- │   ├── nail_details_page.dart
- │   ├── booking_page.dart
- │   └── favorites_page.dart
- │
- ├── widgets
- │   └── nail_card.dart
- │
- └── main.dart
-```
-
-### Explicația folderelor
-
-**models**
-Conține modelele de date ale aplicației (ex: modelul unui design de unghii).
-
-**services**
-Conține logica pentru:
-
-* apelarea serviciilor API
-* gestionarea bazei de date SQLite.
-
-**screens**
-Conține ecranele principale ale aplicației.
-
-**widgets**
-Conține componente UI reutilizabile (ex: carduri pentru afișarea modelelor de unghii).
-
-**main.dart**
-Punctul de pornire al aplicației.
-
----
-
-# Distribuirea sarcinilor în echipă
-
-Pentru dezvoltarea proiectului, sarcinile pot fi împărțite astfel:
-
-**Membru 1**
-
-* configurarea proiectului
-* navigarea între ecrane
-* structura generală a aplicației
-
-**Membru 2**
-
-* implementarea listei de modele de unghii
-* integrarea API pentru încărcarea datelor
-
-**Membru 3**
-
-* implementarea paginii de detalii
-* design UI pentru prezentarea modelelor
-
-**Membru 4**
-
-* implementarea SQLite
-* salvarea modelelor favorite
-
----
-
-# Rularea aplicației
-
-Pentru rularea aplicației:
-
-```bash
-git clone <repository>
-cd Proiect_Tehnologii_Mobile/mobile_app
-flutter pub get
-flutter run
-```
-
----
-
-# Tehnologii utilizate
-
-* Flutter
-* Dart
-* REST API
-* SQLite
-* Git / GitHub
-
----
-
-💡 Dacă vrei, îți pot face și:
-
-* **o versiune puțin mai “profesională” pentru README (care ia puncte mai multe la proiect)**
-* **ideea de API fake pentru modele de unghii**
-* **schema de bază de date SQLite pentru favorite și programări** (profesorii cer foarte des asta).
+Act as an Elite Flutter Developer and Architect. I need you to generate a fully functional, compilation-ready Flutter application based on an Offline-First architecture using Drift (SQLite) for local caching and reactive state management. 
+
+The application is a Gamified Fitness & Health Tracker where user biometrics control a central animated avatar, and local logs are synchronized reactively.
+
+### 1. ARCHITECTURE & TECH STACK REQUIREMENTS
+- State Management: Flutter BLoC (`flutter_bloc`)
+- Local Database: Drift (`drift`, `drift_dev`) with Stream queries for reactive UI.
+- Networking: Dio (`dio`) wrapped in a Repository that prefers local cache and syncs in the background.
+- UI: Modern, Dark Mode High-Contrast Gym/Cyberpunk Theme (Background: #0B0F19, Accent: #10B981, Indigo: #6366F1).
+- Animation Placeholder: Since we will integrate Rive later, create a dedicated custom widget `GymAvatar` that uses CustomPainter or Implicit Animations to simulate an avatar changing states (Idle, Exercising, Resting) based on the current app state.
+
+### 2. DETAILED APP STRUCTURE (BOTTOM NAVIGATION BAR)
+
+#### Slide/Tab 1: Profile & Biometrics
+- Fields: Name, Age, Gender, Height (cm), Weight (kg), Body Fat Percentage (%).
+- Computation: Implement the Mifflin-St Jeor Equation directly in Dart to calculate BMR and Daily Caloric/Macronutrient targets based on weight:
+  - Calories Target = BMR * 1.2 (Sedentary baseline)
+  - Protein Target = 2.0g * Weight (kg)
+  - Carbs Target = 4.0g * Weight (kg)
+  - Fats Target = 1.0g * Weight (kg)
+- Features: Editable fields that instantly update the SQLite database via Drift and trigger a BLoC state change to recalculate macro targets across the app.
+
+#### Slide/Tab 2: Interactive Workout Module
+- Features: A list of predefined exercises (Push-ups, Squats, Pull-ups).
+- Mechanics: Selecting an exercise changes the `GymAvatar` state to 'Exercising'.
+- Elements: 
+  - Dynamic Timer/Chronometer for set execution and rest intervals.
+  - Log sets, reps, and weights directly into the Drift DB.
+  - When resting, `GymAvatar` state changes to 'Resting'.
+
+#### Slide/Tab 3: Nutrition Tracker & Analytics
+- Features: Log Daily Intake (Food Name, Calories, Protein, Carbs, Fats).
+- UI Component: A beautifully rendered CustomPaint or layout-based progress indicator showing current daily intake VS computed ideal targets from Tab 1.
+- Statistical Graph: A horizontal or vertical historical chart showing adherence over the last 7 days.
+
+### 3. DATABASE SCHEMA (DRIFT)
+Generate the Drift table definitions for:
+- `Users` (id, name, age, gender, height, weight, bodyFat, isSynced)
+- `Workouts` (id, exerciseName, sets, reps, weight, timestamp, isSynced)
+- `Nutrition` (id, foodName, calories, protein, carbs, fats, date, isSynced)
+
+### 4. CODE GENERATION INSTRUCTIONS
+- Write complete, robust Dart code. Do not use pseudo-code, do not truncate lists, and do not leave "// TODO: implement later" placeholders. 
+- Provide the full `pubspec.yaml`, the clean directory structure, the drift database file, the BLoCs, the Repositories, and the complete presentation layer UI widgets.
+- Ensure all imports match a standard structure like `import 'package:aura_fit/...';`.
+- Separate the code clearly using Markdown code blocks for each file (`pubspec.yaml`, `main.dart`, `database.dart`, `blocs.dart`, `screens.dart`) so I can easily copy-paste them into my project.
+
+Let's begin generating the complete codebase.
