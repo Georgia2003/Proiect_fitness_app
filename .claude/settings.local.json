@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\theme\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\database\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\repositories\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\blocs\\\\user\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\blocs\\\\workout\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\blocs\\\\nutrition\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\widgets\")",
+      "Bash(New-Item -ItemType Directory -Force \"d:\\\\FACULTATE\\\\Master\\\\an_1\\\\sem_2\\\\Tehnologii Mobile\\\\Proiect_Fitness\\\\lib\\\\screens\")",
+      "Bash(Write-Host \"Directories created.\")"
+    ]
+  }
+}
