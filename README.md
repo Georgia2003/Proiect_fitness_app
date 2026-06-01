@@ -39,10 +39,4 @@ Generate the Drift table definitions for:
 - `Workouts` (id, exerciseName, sets, reps, weight, timestamp, isSynced)
 - `Nutrition` (id, foodName, calories, protein, carbs, fats, date, isSynced)
 
-### 4. CODE GENERATION INSTRUCTIONS
-- Write complete, robust Dart code. Do not use pseudo-code, do not truncate lists, and do not leave "// TODO: implement later" placeholders. 
-- Provide the full `pubspec.yaml`, the clean directory structure, the drift database file, the BLoCs, the Repositories, and the complete presentation layer UI widgets.
-- Ensure all imports match a standard structure like `import 'package:aura_fit/...';`.
-- Separate the code clearly using Markdown code blocks for each file (`pubspec.yaml`, `main.dart`, `database.dart`, `blocs.dart`, `screens.dart`) so I can easily copy-paste them into my project.
 
-Let's begin generating the complete codebase.
