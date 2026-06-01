@@ -1,17 +1,48 @@
-# aura_fit
+Act as an Elite Flutter Developer and Architect. I need you to generate a fully functional, compilation-ready Flutter application based on an Offline-First architecture using Drift (SQLite) for local caching and reactive state management. 
 
-A new Flutter project.
+The application is a Gamified Fitness & Health Tracker where user biometrics control a central animated avatar, and local logs are synchronized reactively.
 
-## Getting Started
+### 1. ARCHITECTURE & TECH STACK REQUIREMENTS
+- State Management: Flutter BLoC (`flutter_bloc`)
+- Local Database: Drift (`drift`, `drift_dev`) with Stream queries for reactive UI.
+- Networking: Dio (`dio`) wrapped in a Repository that prefers local cache and syncs in the background.
+- UI: Modern, Dark Mode High-Contrast Gym/Cyberpunk Theme (Background: #0B0F19, Accent: #10B981, Indigo: #6366F1).
+- Animation Placeholder: Since we will integrate Rive later, create a dedicated custom widget `GymAvatar` that uses CustomPainter or Implicit Animations to simulate an avatar changing states (Idle, Exercising, Resting) based on the current app state.
 
-This project is a starting point for a Flutter application.
+### 2. DETAILED APP STRUCTURE (BOTTOM NAVIGATION BAR)
 
-A few resources to get you started if this is your first Flutter project:
+#### Slide/Tab 1: Profile & Biometrics
+- Fields: Name, Age, Gender, Height (cm), Weight (kg), Body Fat Percentage (%).
+- Computation: Implement the Mifflin-St Jeor Equation directly in Dart to calculate BMR and Daily Caloric/Macronutrient targets based on weight:
+  - Calories Target = BMR * 1.2 (Sedentary baseline)
+  - Protein Target = 2.0g * Weight (kg)
+  - Carbs Target = 4.0g * Weight (kg)
+  - Fats Target = 1.0g * Weight (kg)
+- Features: Editable fields that instantly update the SQLite database via Drift and trigger a BLoC state change to recalculate macro targets across the app.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+#### Slide/Tab 2: Interactive Workout Module
+- Features: A list of predefined exercises (Push-ups, Squats, Pull-ups).
+- Mechanics: Selecting an exercise changes the `GymAvatar` state to 'Exercising'.
+- Elements: 
+  - Dynamic Timer/Chronometer for set execution and rest intervals.
+  - Log sets, reps, and weights directly into the Drift DB.
+  - When resting, `GymAvatar` state changes to 'Resting'.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Slide/Tab 3: Nutrition Tracker & Analytics
+- Features: Log Daily Intake (Food Name, Calories, Protein, Carbs, Fats).
+- UI Component: A beautifully rendered CustomPaint or layout-based progress indicator showing current daily intake VS computed ideal targets from Tab 1.
+- Statistical Graph: A horizontal or vertical historical chart showing adherence over the last 7 days.
+
+### 3. DATABASE SCHEMA (DRIFT)
+Generate the Drift table definitions for:
+- `Users` (id, name, age, gender, height, weight, bodyFat, isSynced)
+- `Workouts` (id, exerciseName, sets, reps, weight, timestamp, isSynced)
+- `Nutrition` (id, foodName, calories, protein, carbs, fats, date, isSynced)
+
+### 4. CODE GENERATION INSTRUCTIONS
+- Write complete, robust Dart code. Do not use pseudo-code, do not truncate lists, and do not leave "// TODO: implement later" placeholders. 
+- Provide the full `pubspec.yaml`, the clean directory structure, the drift database file, the BLoCs, the Repositories, and the complete presentation layer UI widgets.
+- Ensure all imports match a standard structure like `import 'package:aura_fit/...';`.
+- Separate the code clearly using Markdown code blocks for each file (`pubspec.yaml`, `main.dart`, `database.dart`, `blocs.dart`, `screens.dart`) so I can easily copy-paste them into my project.
+
+Let's begin generating the complete codebase.
