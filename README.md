@@ -1,4 +1,4 @@
-Act as an Elite Flutter Developer and Architect. I need you to generate a fully functional, compilation-ready Flutter application based on an Offline-First architecture using Drift (SQLite) for local caching and reactive state management. 
+
 
 The application is a Gamified Fitness & Health Tracker where user biometrics control a central animated avatar, and local logs are synchronized reactively.
 
